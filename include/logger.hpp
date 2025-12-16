@@ -6,8 +6,10 @@
 #include <mutex>
 #include <cstddef>
 #include <cstdint>
+#include <fstream>
 
-namespace logger {
+
+namespace logger_space {
 
     enum Level : std::uint8_t {
         INFO = 0,
@@ -30,22 +32,21 @@ namespace logger {
     ~Logger() {}
 
     void logMessage();
-    void rotateifNeeded();
+    void RotateIfNeeded(int size_limit , int current_size);
 
     public:
-        static Logger& getInstance(){
+        static Logger& getInstance()
+        {
             static Logger instance;
             return instance;
         }
-void log();
-
+void info();
 void warn();
-
 void error();
 
     };
 
-} // namespace logger
+} // namespace logger_space
 
 #endif // LOGGER_HPP
 
