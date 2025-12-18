@@ -12,3 +12,7 @@ A simple C++ logger with file rotation and timestamps
 g++ -std=c++17 main.cpp src/logger.cpp -Iinclude -o logger_app ---> //to compile whole project
 
  g++ -std=c++17 main.cpp include/logger.hpp -o logger_app --->  // to compile hpp
+
+ # Test command
+
+ g++ -std=c++17 -I. test/logger_test.cpp -o logger_test && ./logger_test 
