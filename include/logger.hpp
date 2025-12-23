@@ -20,11 +20,12 @@ namespace logger_space {
 
         int size_limit;
         std::mutex mtx;
-        uint8_t current_logger_info;
+        Level current_logger_info;
         int current_size;
         std::string file_name;
         std::ofstream fileout;
         int cycle;
+        std::string message;
 
         Logger();
 
@@ -32,9 +33,10 @@ namespace logger_space {
         Logger& operator=(const Logger&) = delete;
         ~Logger();
 
-        void execute(int cycle);
-    void WritelogMessage();
-    void RotateIfNeeded(int ccz , int current_size);
+
+    void WritelogMessage(Level current_logger_info);
+    void RotateIfNeeded(int size_limit , int current_size);
+    std::string getLevelstring(Level current_logger_info);
 
     public:
         static Logger& getInstance()
@@ -42,7 +44,7 @@ namespace logger_space {
             static Logger instance;
             return instance;
         }
-
+        void execute( Level info);
 void info();
 void warn();
 void error();
