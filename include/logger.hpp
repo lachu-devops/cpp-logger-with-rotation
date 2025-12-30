@@ -19,12 +19,12 @@ namespace logger_space {
     class Logger {
 
         int size_limit;
-        std::mutex mtx;
+        // std::mutex mtx;
         Level current_logger_info;
         int current_size;
         std::string file_name;
         std::ofstream fileout;
-        int cycle;
+        // int cycle;
         std::string message;
 
         Logger();
